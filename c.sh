@@ -198,7 +198,7 @@ echo -e "${OK} ${GreenBG} 正在检测是否支持 systemd ${Font}"
 	for CMD in  grep cut xargs systemctl ip awk
 	do
 		if ! type -p ${CMD}; then
-			echo -e "${Error} ${RedBG} 系统过度精简 缺少必要依赖${} 脚本终止继续安装 ${Font}"
+			echo -e "${Error} ${RedBG} 系统过度精简 缺少必要依赖${CMD} 脚本终止继续安装 ${Font}"
 			exit 1
 		fi
 	done
