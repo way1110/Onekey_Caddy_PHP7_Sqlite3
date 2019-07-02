@@ -461,6 +461,13 @@ caddy_install(){
 	Default_caddy
 	#caddy官方脚本
 	curl https://getcaddy.com | bash -s personal tls.dns.cloudflare
+	#caddy cloudflare 配置
+	echo -e "${Info} ${GreenBG} 请输入你的cloudflare api key ${Font}"
+	stty erase '^H' && read -e -p "请输入：" CLOUDFLARE_API_KEY
+	echo -e "${Info} ${GreenBG} 请输入你的cloudflare email ${Font}"
+	stty erase '^H' && read -e -p "请输入：" CLOUDFLARE_EMAIL
+	echo -e "${OK} ${GreenBG} 你设置的CLOUDFLARE_API_KEY为：${CLOUDFLARE_API_KEY} ${Font}"
+	echo -e "${OK} ${GreenBG} 你设置的CLOUDFLARE_EMAIL为：${CLOUDFLARE_EMAIL} ${Font}"
 
 	#添加自启动 加载配置文件
 	touch /etc/systemd/system/caddy.service
@@ -473,8 +480,8 @@ Wants=network.target
 [Service]
 Type=simple
 PIDFile=/var/run/caddy.pid
-Environment=CLOUDFLARE_API_KEY=3e8b2255a172e3426d6f02d542d30f13b598d
-Environment=CLOUDFLARE_EMAIL=way1110@qq.com
+Environment=CLOUDFLARE_API_KEY=${CLOUDFLARE_API_KEY}
+Environment=CLOUDFLARE_EMAIL=${CLOUDFLARE_EMAIL}
 ExecStart=/usr/local/bin/caddy -conf=${caddy_conf} -agree=true -ca=https://acme-v02.api.letsencrypt.org/directory
 RestartPreventExitStatus=23
 Restart=always
