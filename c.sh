@@ -927,7 +927,7 @@ v2ray_information(){
 	echo -e "${Green} 底层传输安全：${Font} tls"
 	echo ""
 	echo -e "${Green} 注意：伪装路径不要少写 [ / ] ${Font}"
-	echo -e "${Green} Windows系统64位客户端下载：${Font} http:\\${getdomain}\V2rayPro.zip"
+	echo -e "${Green} Windows系统64位客户端下载：${Font} https://${getdomain}/V2rayPro.zip"
 	echo -e "${Green} 解压密码（由函数随机生成）：${Font} ${unzip_password_v}"
 	echo ""
 	echo -e "----------------------------------------------------------"
