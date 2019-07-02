@@ -195,7 +195,7 @@ check_system(){
 #检测依赖
 systemd_chack(){
 echo -e "${OK} ${GreenBG} 正在检测是否支持 systemd ${Font}"
-	for CMD in iptables grep cut xargs systemctl ip awk
+	for CMD in  grep cut xargs systemctl ip awk
 	do
 		if ! type -p ${CMD}; then
 			echo -e "${Error} ${RedBG} 系统过度精简 缺少必要依赖 脚本终止继续安装 ${Font}"
